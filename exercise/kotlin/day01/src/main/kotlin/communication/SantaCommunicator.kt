@@ -9,7 +9,7 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
      return composeMessage(message.reindeerName,message.currentLocation,message.numbersOfDaysForComingBack,message.numberOfDaysBeforeChristmas)
     }
 
-    fun composeMessage(
+    private fun composeMessage(
         reindeerName: String,
         currentLocation: String,
         numbersOfDaysForComingBack: Int,
@@ -28,7 +28,7 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
             logger = logger
         )
     }
-    fun isOverdue(
+    private fun isOverdue(
         reindeerName: String,
         currentLocation: String,
         numbersOfDaysForComingBack: Int,

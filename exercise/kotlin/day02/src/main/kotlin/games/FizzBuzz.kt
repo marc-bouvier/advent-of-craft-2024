@@ -11,7 +11,6 @@ class FizzBuzz(vararg rules: Rule) {
     val rules: List<Rule>
 
     init {
-
         this.rules = when {
             rules.isNotEmpty() -> listOf(*rules, identityRule())
             else -> listOf(*standardRules(), identityRule())
@@ -39,7 +38,6 @@ class FizzBuzz(vararg rules: Rule) {
         fun isValid(input: Int) = input % divisor == 0
         fun apply(input: Int) = rendering(input)
     }
-
 
     companion object {
 

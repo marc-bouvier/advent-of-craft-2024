@@ -40,6 +40,17 @@ class SantaMessage {
     val numbersOfDaysForComingBack: DaysForComingBack
     val numberOfDaysBeforeChristmas: DaysBeforeChristmas
 
+    constructor(
+        numbersOfDaysForComingBack: DaysForComingBack,
+        numberOfDaysBeforeChristmas: DaysBeforeChristmas,
+        reindeer1: Reindeer
+    ) {
+        this.reindeer = reindeer1
+        this.reindeerName = reindeer1.reindeerName
+        this.currentLocation = reindeer1.currentLocation
+        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack
+        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
+    }
 
     constructor(
         reindeerName: String,

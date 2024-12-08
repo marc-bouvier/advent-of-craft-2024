@@ -11,6 +11,7 @@ private const val FIZZ = 3
 private const val BUZZ = 5
 
 private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ,{"FizzBuzz"})
+private val BUZZ_RULE = FizzBuzz.FizzBuzzRule(BUZZ,{"Buzz"})
 
 object FizzBuzz {
     fun convert(input: Int): Option<String> = when {
@@ -21,6 +22,7 @@ object FizzBuzz {
 
     private fun convertSafely(input: Int): String = when {
         FIZZ_BUZZ_RULE.isValid(input) -> FIZZ_BUZZ_RULE.apply(input)
+        BUZZ_RULE.isValid(input) -> BUZZ_RULE.apply(input)
         `is`(FIZZ, input) -> "Fizz"
         `is`(BUZZ, input) -> "Buzz"
         else -> input.toString()

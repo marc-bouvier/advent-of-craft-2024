@@ -4,6 +4,12 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
 
 
     fun composeMessage(
+    message: SantaMessage,
+    ): String {
+     return composeMessage(message.reindeerName,message.currentLocation,message.numbersOfDaysForComingBack,message.numberOfDaysBeforeChristmas)
+    }
+
+    fun composeMessage(
         reindeerName: String,
         currentLocation: String,
         numbersOfDaysForComingBack: Int,

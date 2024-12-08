@@ -46,7 +46,7 @@ class ConfigurableFizzBuzz(vararg rules: FizzBuzzRule) {
     )
 
     private fun convertSafely(input: Int, vararg rules: FizzBuzzRule): String {
-        return rules.toList()
+        return rules
             .first { rule -> rule.isValid(input) }
             .apply(input)
     }

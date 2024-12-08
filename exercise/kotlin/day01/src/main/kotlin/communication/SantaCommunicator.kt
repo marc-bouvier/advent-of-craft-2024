@@ -10,24 +10,14 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
         return "Dear ${message.reindeerName}, please return from ${message.currentLocation} in $daysBeforeReturn day(s) to be ready and rest before Christmas."
     }
 
-    fun isOverdue(message: SantaMessage,logger: Logger): Boolean {
-        return isOverdue(
-            reindeerName = message.reindeerName,
-            currentLocation = message.currentLocation,
-            numbersOfDaysForComingBack = message.numbersOfDaysForComingBack,
-            numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas,
-            logger = logger
-        )
-    }
-    private fun isOverdue(
-        reindeerName: String,
-        currentLocation: String,
-        numbersOfDaysForComingBack: Int,
-        numberOfDaysBeforeChristmas: Int,
-        logger: Logger
-    ): Boolean {
-        return if (daysBeforeReturn(numbersOfDaysForComingBack, numberOfDaysBeforeChristmas) <= 0) {
-            logger.log("Overdue for $reindeerName located $currentLocation.")
+    fun isOverdue(message: SantaMessage, logger: Logger): Boolean {
+        return if (daysBeforeReturn(
+                numbersOfDaysForComingBack = message.numbersOfDaysForComingBack,
+                numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas
+            ) <= 0
+        ) {
+            logger
+                .log("Overdue for ${message.reindeerName} located ${message.currentLocation}.")
             true
         } else false
     }

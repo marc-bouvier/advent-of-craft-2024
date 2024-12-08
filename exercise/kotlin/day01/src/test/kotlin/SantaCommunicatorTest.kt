@@ -51,10 +51,7 @@ class SantaCommunicatorTest : DescribeSpec({
                 numbersOfDaysForComingBack = numberOfDayBeforeChristmas - numberOfDaysToRest - 1,
                 numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas,)
             communicator.isOverdue(
-                reindeerName = "Dasher",
-                currentLocation = "North Pole",
-                numbersOfDaysForComingBack = numberOfDayBeforeChristmas - numberOfDaysToRest - 1,
-                numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas,
+                message = santaMessage,
                 logger = logger
             ) shouldBe false
         }

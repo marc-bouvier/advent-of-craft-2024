@@ -16,11 +16,7 @@ object FizzBuzz {
 
         val applicableRules: Array<out FizzBuzzRule> = when {
             rules.isNotEmpty() -> rules
-            else -> arrayOf(
-                FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" }),
-                FizzBuzzRule(BUZZ, { "Buzz" }),
-                FizzBuzzRule(FIZZ, { "Fizz" }),
-            )
+            else -> standardRules()
         }
         return when {
             isOutOfRange(input) -> None
@@ -35,6 +31,12 @@ object FizzBuzz {
             }
         }
     }
+
+    private fun standardRules() = arrayOf(
+        FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" }),
+        FizzBuzzRule(BUZZ, { "Buzz" }),
+        FizzBuzzRule(FIZZ, { "Fizz" }),
+    )
 
     private fun convertSafely(input: Int, vararg rules: FizzBuzzRule): String {
         return rules.toList()

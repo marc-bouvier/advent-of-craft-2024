@@ -19,10 +19,7 @@ class SantaCommunicatorTest : DescribeSpec({
             communicator
                 .composeMessage(
                     SantaMessage(
-                        reindeerName = "Dasher",
-                        currentLocation = "North Pole",
-                        numbersOfDaysForComingBack = DaysForComingBack(5),
-                        numberOfDaysBeforeChristmas = DaysBeforeChristmas( numberOfDayBeforeChristmas)
+                        "Dasher", "North Pole", DaysForComingBack(5), DaysBeforeChristmas( numberOfDayBeforeChristmas)
                     )
                 ) shouldBe "Dear Dasher, please return from North Pole in 17 day(s) to be ready and rest before Christmas."
         }
@@ -31,10 +28,10 @@ class SantaCommunicatorTest : DescribeSpec({
     describe("isOverdue") {
         it("should detect overdue reindeer") {
             val santaMessage = SantaMessage(
-                reindeerName = "Dasher",
-                currentLocation = "North Pole",
-                numbersOfDaysForComingBack = DaysForComingBack(numberOfDayBeforeChristmas),
-                numberOfDaysBeforeChristmas =  DaysBeforeChristmas(numberOfDayBeforeChristmas),
+                "Dasher",
+                "North Pole",
+                DaysForComingBack(numberOfDayBeforeChristmas),
+                DaysBeforeChristmas(numberOfDayBeforeChristmas),
             )
             val overdue = communicator.isOverdue(
                 santaMessage,
@@ -46,11 +43,12 @@ class SantaCommunicatorTest : DescribeSpec({
         }
 
         it("should return false when not overdue") {
-            val santaMessage = SantaMessage(reindeerName = "Dasher",
-                currentLocation = "North Pole",
-                numbersOfDaysForComingBack =
+            val santaMessage = SantaMessage(
+                "Dasher",
+                "North Pole",
                 DaysForComingBack(numberOfDayBeforeChristmas - numberOfDaysToRest - 1),
-                numberOfDaysBeforeChristmas = DaysBeforeChristmas(numberOfDayBeforeChristmas),)
+                DaysBeforeChristmas(numberOfDayBeforeChristmas),
+            )
             communicator.isOverdue(
                 message = santaMessage,
                 logger = logger

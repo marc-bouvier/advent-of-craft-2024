@@ -1,4 +1,3 @@
-import games.ConfigurableFizzBuzz
 import games.FizzBuzz
 import io.kotest.assertions.arrow.core.shouldBeNone
 import io.kotest.assertions.arrow.core.shouldBeSome
@@ -39,7 +38,7 @@ class FizzBuzzTests : FunSpec({
 
 private fun standardFizzBuzzConvert(input: Int) = FizzBuzz.convert(input)
 
-private fun fizzBuzzConvert(input: Int) = ConfigurableFizzBuzz(
+private fun fizzBuzzConvert(input: Int) = FizzBuzz(
     FizzBuzz.Rule(15, { "FizzBuzz" }),
     FizzBuzz.Rule(11, { "Bang" }),
     FizzBuzz.Rule(7, { "Whizz" }),

@@ -3,8 +3,6 @@ package games
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
-import games.FizzBuzz.Rule
-import games.FizzBuzz.identityRule
 
 const val MIN = 1
 const val MAX = 100
@@ -12,7 +10,7 @@ private const val FIZZBUZZ = 15
 private const val FIZZ = 3
 private const val BUZZ = 5
 
-class ConfigurableFizzBuzz(vararg rules: Rule) {
+class FizzBuzz(vararg rules: Rule) {
     val rules: List<Rule>
 
     init {
@@ -42,17 +40,18 @@ class ConfigurableFizzBuzz(vararg rules: Rule) {
 
     private fun isOutOfRange(input: Int) = input < MIN || input > MAX
 
-}
-
-object FizzBuzz {
-    fun convert(input: Int): Option<String> {
-        return ConfigurableFizzBuzz().convert(input)
-    }
-
     class Rule(val divisor: Int, val rendering: (input: Int) -> String) {
         fun isValid(input: Int) = input % divisor == 0
         fun apply(input: Int) = rendering(input)
     }
 
-    fun identityRule() = Rule(1, { "$it" })
+
+    companion object {
+        fun convert(input: Int): Option<String> {
+            return FizzBuzz().convert(input)
+        }
+
+
+        fun identityRule() = Rule(1, { "$it" })
+    }
 }

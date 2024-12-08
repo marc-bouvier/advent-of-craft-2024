@@ -32,7 +32,6 @@ object FizzBuzz {
             .apply(input)
     }
 
-    private fun `is`(divisor: Int, input: Int): Boolean = input % divisor == 0
     private fun isOutOfRange(input: Int) = input < MIN || input > MAX
 
     class FizzBuzzRule(val divisor: Int, val rendering: (input: Int) -> String) {

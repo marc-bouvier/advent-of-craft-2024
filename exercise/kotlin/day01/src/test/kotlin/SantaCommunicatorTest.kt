@@ -18,16 +18,23 @@ class SantaCommunicatorTest : DescribeSpec({
         it("should compose correct message") {
             communicator
                 .composeMessage(
-                    reindeerName = "Dasher",
-                    currentLocation = "North Pole",
-                    numbersOfDaysForComingBack = 5,
-                    numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas
+                    "Dasher",
+                    "North Pole",
+                    5,
+                    numberOfDayBeforeChristmas
                 ) shouldBe "Dear Dasher, please return from North Pole in 17 day(s) to be ready and rest before Christmas."
         }
     }
 
     describe("isOverdue") {
         it("should detect overdue reindeer") {
+            val santaMessage = SantaMessage(
+                reindeerName = "Dasher",
+                currentLocation = "North Pole",
+                numbersOfDaysForComingBack = numberOfDayBeforeChristmas,
+                numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas,
+                logger = logger
+            )
             val overdue = communicator.isOverdue(
                 reindeerName = "Dasher",
                 currentLocation = "North Pole",
@@ -51,3 +58,13 @@ class SantaCommunicatorTest : DescribeSpec({
         }
     }
 })
+
+data class SantaMessage(
+    val reindeerName: String,
+    val currentLocation: String,
+    val numbersOfDaysForComingBack: Int,
+    val numberOfDaysBeforeChristmas: Int,
+    val logger: TestLogger
+) {
+
+}

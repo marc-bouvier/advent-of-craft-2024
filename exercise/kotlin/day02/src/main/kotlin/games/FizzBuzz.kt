@@ -10,14 +10,17 @@ private const val FIZZBUZZ = 15
 private const val FIZZ = 3
 private const val BUZZ = 5
 
+private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ,{"FizzBuzz"})
+
 object FizzBuzz {
     fun convert(input: Int): Option<String> = when {
         isOutOfRange(input) -> None
         else -> Some(convertSafely(input))
     }
 
+
     private fun convertSafely(input: Int): String = when {
-        `is`(FIZZBUZZ, input) -> "FizzBuzz"
+        FIZZ_BUZZ_RULE.isValid(input) -> FIZZ_BUZZ_RULE.apply(input)
         `is`(FIZZ, input) -> "Fizz"
         `is`(BUZZ, input) -> "Buzz"
         else -> input.toString()

@@ -59,12 +59,3 @@ class SantaCommunicatorTest : DescribeSpec({
     }
 })
 
-data class SantaMessage(
-    val reindeerName: String,
-    val currentLocation: String,
-    val numbersOfDaysForComingBack: Int,
-    val numberOfDaysBeforeChristmas: Int,
-    val logger: TestLogger
-) {
-
-}

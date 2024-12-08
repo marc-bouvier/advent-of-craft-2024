@@ -2,6 +2,7 @@ package communication
 
 class SantaCommunicator(private val numberOfDaysToRest: Int) {
 
+
     fun composeMessage(
         reindeerName: String,
         currentLocation: String,
@@ -29,4 +30,14 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
     private fun daysBeforeReturn(numbersOfDaysForComingBack: Int, numberOfDaysBeforeChristmas: Int): Int {
         return numberOfDaysBeforeChristmas - numbersOfDaysForComingBack - numberOfDaysToRest
     }
+}
+
+data class SantaMessage(
+    val reindeerName: String,
+    val currentLocation: String,
+    val numbersOfDaysForComingBack: Int,
+    val numberOfDaysBeforeChristmas: Int,
+    val logger: Logger
+) {
+
 }

@@ -6,9 +6,6 @@ import arrow.core.Some
 
 const val MIN = 1
 const val MAX = 100
-private const val FIZZBUZZ = 15
-private const val FIZZ = 3
-private const val BUZZ = 5
 
 class FizzBuzz(vararg rules: Rule) {
     val rules: List<Rule>
@@ -27,9 +24,9 @@ class FizzBuzz(vararg rules: Rule) {
     }
 
     private fun standardRules() = arrayOf(
-        Rule(FIZZBUZZ, { "FizzBuzz" }),
-        Rule(BUZZ, { "Buzz" }),
-        Rule(FIZZ, { "Fizz" }),
+        Rule(15, { "FizzBuzz" }),
+        Rule(5, { "Buzz" }),
+        Rule(3, { "Fizz" }),
     )
 
     private fun convertSafely(input: Int): String = rules

@@ -36,11 +36,22 @@ class DaysBeforeChristmas(private val days: Int) {
     }
 }
 
-class SantaMessage(
-    val reindeerName: String,
-    val currentLocation: String,
-    val numbersOfDaysForComingBack: Int,
-    val numberOfDaysBeforeChristmas: Int,
-) {
+class SantaMessage {
+    val reindeerName: String
+    val currentLocation: String
+    val numbersOfDaysForComingBack: Int
+    val numberOfDaysBeforeChristmas: Int
+
+    constructor(
+        reindeerName: String,
+        currentLocation: String,
+        numbersOfDaysForComingBack: Int,
+        numberOfDaysBeforeChristmas: Int
+    ) {
+        this.reindeerName = reindeerName
+        this.currentLocation = currentLocation
+        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack
+        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
+    }
 
 }

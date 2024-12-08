@@ -13,15 +13,15 @@ fun validStringsFor(x: Int): List<String> = fizzBuzzStrings + x.toString()
 class FizzBuzzProperties : StringSpec({
     "parse return a valid string for numbers between 1 and 100" {
         forAll(Arb.int(MIN..MAX)) { x ->
-            fizzBuzzConvert(x).isSome { result -> validStringsFor(x).contains(result) }
+            standardFizzBuzzConvert(x).isSome { result -> validStringsFor(x).contains(result) }
         }
     }
 
     "parse fail for numbers out of range" {
         forAll(Arb.int().filter { i -> i < MIN || i > MAX }) { x ->
-            fizzBuzzConvert(x).isNone()
+            standardFizzBuzzConvert(x).isNone()
         }
     }
 })
 
-private fun fizzBuzzConvert(x: Int) = FizzBuzz.convert(x)
+private fun standardFizzBuzzConvert(x: Int) = FizzBuzz.convert(x)

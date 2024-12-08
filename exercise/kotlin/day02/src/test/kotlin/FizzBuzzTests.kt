@@ -20,17 +20,17 @@ class FizzBuzzTests : FunSpec({
             ValidInput(30, "FizzBuzz"),
             ValidInput(45, "FizzBuzz")
         ) { (input, expectedResult) ->
-            fizzBuzzConvert(input).shouldBeSome(expectedResult)
+            standardFizzBuzzConvert(input).shouldBeSome(expectedResult)
         }
     }
 
     context("fails for numbers out of range") {
         withData(0, -1, 101) { x ->
-            fizzBuzzConvert(x).shouldBeNone()
+            standardFizzBuzzConvert(x).shouldBeNone()
         }
     }
 })
 
-private fun fizzBuzzConvert(input: Int) = FizzBuzz.convert(input)
+private fun standardFizzBuzzConvert(input: Int) = FizzBuzz.convert(input)
 
 data class ValidInput(val input: Int, val expectedResult: String)

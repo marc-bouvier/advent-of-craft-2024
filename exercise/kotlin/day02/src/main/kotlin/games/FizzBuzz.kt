@@ -23,7 +23,7 @@ class ConfigurableFizzBuzz(vararg rules: FizzBuzzRule) {
         }
     }
 
-    fun convert(input: Int, vararg rules: FizzBuzzRule): Option<String> {
+    fun convert(input: Int): Option<String> {
 
         return when {
             isOutOfRange(input) -> None

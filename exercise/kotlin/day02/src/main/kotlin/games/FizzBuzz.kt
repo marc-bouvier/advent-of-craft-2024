@@ -10,10 +10,10 @@ private const val FIZZBUZZ = 15
 private const val FIZZ = 3
 private const val BUZZ = 5
 
-private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ,{"FizzBuzz"})
-private val BUZZ_RULE = FizzBuzz.FizzBuzzRule(BUZZ,{"Buzz"})
-private val FIZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZ,{"Fizz"})
-private val DEFAULT_RULE = FizzBuzz.FizzBuzzRule(1,{"$it"})
+private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" })
+private val BUZZ_RULE = FizzBuzz.FizzBuzzRule(BUZZ, { "Buzz" })
+private val FIZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZ, { "Fizz" })
+private val DEFAULT_RULE = FizzBuzz.FizzBuzzRule(1, { "$it" })
 
 object FizzBuzz {
     fun convert(input: Int): Option<String> = when {
@@ -22,11 +22,14 @@ object FizzBuzz {
     }
 
 
-    private fun convertSafely(input: Int): String = when {
-        FIZZ_BUZZ_RULE.isValid(input) -> FIZZ_BUZZ_RULE.apply(input)
-        BUZZ_RULE.isValid(input) -> BUZZ_RULE.apply(input)
-        FIZZ_RULE.isValid(input) -> FIZZ_RULE.apply(input)
-        else -> DEFAULT_RULE.apply(input)
+    private fun convertSafely(input: Int): String {
+        return listOf(
+            FIZZ_BUZZ_RULE,
+            BUZZ_RULE,
+            FIZZ_RULE,
+            DEFAULT_RULE
+        ).first { rule -> rule.isValid(input) }
+            .apply(input)
     }
 
     private fun `is`(divisor: Int, input: Int): Boolean = input % divisor == 0

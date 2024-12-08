@@ -13,7 +13,6 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
     fun isOverdue(message: SantaMessage, logger: Logger): Boolean {
         val numbersOfDaysForComingBack = message.numbersOfDaysForComingBack
         val numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas
-        val daysBeforeChristmas = DaysBeforeChristmas(numberOfDaysBeforeChristmas)
         return if (daysBeforeReturn(
                 numbersOfDaysForComingBack = numbersOfDaysForComingBack,
                 numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
@@ -30,11 +29,6 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
     }
 }
 
-class DaysBeforeChristmas(private val days: Int) {
-    fun asInt(): Int {
-        return days
-    }
-}
 
 class SantaMessage {
     val reindeerName: String
@@ -54,4 +48,14 @@ class SantaMessage {
         this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas.asInt()
     }
 
+}
+class DaysBeforeChristmas(private val days: Int) {
+    fun asInt(): Int {
+        return days
+    }
+}
+class DaysForComingBack(private val days: Int) {
+    fun asInt(): Int {
+        return days
+    }
 }

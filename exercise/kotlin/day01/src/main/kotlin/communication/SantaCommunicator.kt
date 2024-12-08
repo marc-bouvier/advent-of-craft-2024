@@ -26,11 +26,10 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
         numberOfDaysBeforeChristmas: Int,
         logger: Logger
     ): Boolean {
-        if (daysBeforeReturn(numbersOfDaysForComingBack, numberOfDaysBeforeChristmas) <= 0) {
+        return if (daysBeforeReturn(numbersOfDaysForComingBack, numberOfDaysBeforeChristmas) <= 0) {
             logger.log("Overdue for $reindeerName located $currentLocation.")
-            return true
-        }
-        return false
+            true
+        } else false
     }
 
     private fun daysBeforeReturn(numbersOfDaysForComingBack: Int, numberOfDaysBeforeChristmas: Int): Int {

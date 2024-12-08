@@ -19,8 +19,6 @@ class SantaCommunicatorTest : DescribeSpec({
             communicator
                 .composeMessage(
                     SantaMessage(
-                        "Dasher",
-                        "North Pole",
                         DaysForComingBack(5),
                         DaysBeforeChristmas( numberOfDayBeforeChristmas),
                         Reindeer("Dasher", "North Pole")
@@ -32,8 +30,6 @@ class SantaCommunicatorTest : DescribeSpec({
     describe("isOverdue") {
         it("should detect overdue reindeer") {
             val santaMessage = SantaMessage(
-                "Dasher",
-                "North Pole",
                 DaysForComingBack(numberOfDayBeforeChristmas),
                 DaysBeforeChristmas(numberOfDayBeforeChristmas),
  Reindeer("Dasher", "North Pole"),
@@ -49,8 +45,6 @@ class SantaCommunicatorTest : DescribeSpec({
 
         it("should return false when not overdue") {
             val santaMessage = SantaMessage(
-                "Dasher",
-                "North Pole",
                 DaysForComingBack(numberOfDayBeforeChristmas - numberOfDaysToRest - 1),
                 DaysBeforeChristmas(numberOfDayBeforeChristmas),
  Reindeer("Dasher", "North Pole"),

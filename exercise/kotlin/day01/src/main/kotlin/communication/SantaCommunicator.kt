@@ -16,7 +16,7 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
             ) <= 0
         ) {
             logger
-                .log("Overdue for ${message.reindeerName} located ${message.currentLocation}.")
+                .log("Overdue for ${message.reindeer.reindeerName} located ${message.reindeer.currentLocation}.")
             true
         } else false
     }

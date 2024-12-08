@@ -45,7 +45,7 @@ class ConfigurableFizzBuzz(vararg rules: Rule) {
 }
 
 object FizzBuzz {
-    fun convert(input: Int, vararg rules: Rule): Option<String> {
+    fun convert(input: Int): Option<String> {
         return ConfigurableFizzBuzz().convert(input)
     }
 

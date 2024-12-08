@@ -19,6 +19,15 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
         return "Dear $reindeerName, please return from $currentLocation in $daysBeforeReturn day(s) to be ready and rest before Christmas."
     }
 
+    fun isOverdue(message: SantaMessage,logger: Logger): Boolean {
+        return isOverdue(
+            reindeerName = message.reindeerName,
+            currentLocation = message.currentLocation,
+            numbersOfDaysForComingBack = message.numbersOfDaysForComingBack,
+            numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas,
+            logger = logger
+        )
+    }
     fun isOverdue(
         reindeerName: String,
         currentLocation: String,

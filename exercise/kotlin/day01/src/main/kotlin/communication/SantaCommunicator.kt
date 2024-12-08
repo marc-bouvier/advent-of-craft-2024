@@ -11,9 +11,12 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
     }
 
     fun isOverdue(message: SantaMessage, logger: Logger): Boolean {
+        val numbersOfDaysForComingBack = message.numbersOfDaysForComingBack
+        val numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas
+
         return if (daysBeforeReturn(
-                numbersOfDaysForComingBack = message.numbersOfDaysForComingBack,
-                numberOfDaysBeforeChristmas = message.numberOfDaysBeforeChristmas
+                numbersOfDaysForComingBack = numbersOfDaysForComingBack,
+                numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
             ) <= 0
         ) {
             logger

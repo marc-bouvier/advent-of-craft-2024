@@ -48,6 +48,18 @@ class SantaMessage {
         this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas.asInt()
     }
 
+    constructor(
+        reindeerName: String,
+        currentLocation: String,
+        numbersOfDaysForComingBack: DaysBeforeChristmas,
+        numberOfDaysBeforeChristmas: DaysBeforeChristmas
+    ) {
+        this.reindeerName = reindeerName
+        this.currentLocation = currentLocation
+        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack.asInt()
+        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas.asInt()
+    }
+
 }
 class DaysBeforeChristmas(private val days: Int) {
     fun asInt(): Int {

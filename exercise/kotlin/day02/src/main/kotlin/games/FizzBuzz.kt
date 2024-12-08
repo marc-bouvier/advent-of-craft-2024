@@ -49,20 +49,6 @@ object FizzBuzz {
         return ConfigurableFizzBuzz().convert(input)
     }
 
-    private fun standardRules() = arrayOf(
-        FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" }),
-        FizzBuzzRule(BUZZ, { "Buzz" }),
-        FizzBuzzRule(FIZZ, { "Fizz" }),
-    )
-
-    private fun convertSafely(input: Int, vararg rules: FizzBuzzRule): String {
-        return rules.toList()
-            .first { rule -> rule.isValid(input) }
-            .apply(input)
-    }
-
-    private fun isOutOfRange(input: Int) = input < MIN || input > MAX
-
     class FizzBuzzRule(val divisor: Int, val rendering: (input: Int) -> String) {
         fun isValid(input: Int) = input % divisor == 0
         fun apply(input: Int) = rendering(input)

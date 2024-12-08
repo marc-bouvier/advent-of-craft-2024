@@ -10,24 +10,18 @@ private const val FIZZBUZZ = 15
 private const val FIZZ = 3
 private const val BUZZ = 5
 
-private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" })
-private val BUZZ_RULE = FizzBuzz.FizzBuzzRule(BUZZ, { "Buzz" })
-private val FIZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZ, { "Fizz" })
-private val DEFAULT_RULE = FizzBuzz.FizzBuzzRule(1, { "$it" })
-
 object FizzBuzz {
     fun convert(input: Int): Option<String> = when {
         isOutOfRange(input) -> None
         else -> Some(convertSafely(input))
     }
 
-
     private fun convertSafely(input: Int): String {
         return listOf(
-            FIZZ_BUZZ_RULE,
-            BUZZ_RULE,
-            FIZZ_RULE,
-            DEFAULT_RULE
+            FizzBuzzRule(FIZZBUZZ, { "FizzBuzz" }),
+            FizzBuzzRule(BUZZ, { "Buzz" }),
+            FizzBuzzRule(FIZZ, { "Fizz" }),
+            FizzBuzzRule(divisor = 1, { "$it" })
         ).first { rule -> rule.isValid(input) }
             .apply(input)
     }

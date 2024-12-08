@@ -46,6 +46,10 @@ class SantaCommunicatorTest : DescribeSpec({
         }
 
         it("should return false when not overdue") {
+            val santaMessage = SantaMessage(reindeerName = "Dasher",
+                currentLocation = "North Pole",
+                numbersOfDaysForComingBack = numberOfDayBeforeChristmas - numberOfDaysToRest - 1,
+                numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas,)
             communicator.isOverdue(
                 reindeerName = "Dasher",
                 currentLocation = "North Pole",

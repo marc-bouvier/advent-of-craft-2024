@@ -13,6 +13,7 @@ private const val BUZZ = 5
 private val FIZZ_BUZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZBUZZ,{"FizzBuzz"})
 private val BUZZ_RULE = FizzBuzz.FizzBuzzRule(BUZZ,{"Buzz"})
 private val FIZZ_RULE = FizzBuzz.FizzBuzzRule(FIZZ,{"Fizz"})
+private val DEFAULT_RULE = FizzBuzz.FizzBuzzRule(1,{"$it"})
 
 object FizzBuzz {
     fun convert(input: Int): Option<String> = when {
@@ -25,9 +26,7 @@ object FizzBuzz {
         FIZZ_BUZZ_RULE.isValid(input) -> FIZZ_BUZZ_RULE.apply(input)
         BUZZ_RULE.isValid(input) -> BUZZ_RULE.apply(input)
         FIZZ_RULE.isValid(input) -> FIZZ_RULE.apply(input)
-        `is`(FIZZ, input) -> "Fizz"
-        `is`(BUZZ, input) -> "Buzz"
-        else -> input.toString()
+        else -> DEFAULT_RULE.apply(input)
     }
 
     private fun `is`(divisor: Int, input: Int): Boolean = input % divisor == 0

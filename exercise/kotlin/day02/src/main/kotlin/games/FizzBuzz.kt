@@ -8,13 +8,9 @@ const val MIN = 1
 const val MAX = 100
 
 class FizzBuzz(vararg rules: Rule) {
-    val rules: List<Rule>
-
-    init {
-        this.rules = when {
-            rules.isNotEmpty() -> listOf(*rules, identityRule())
-            else -> listOf(*standardRules(), identityRule())
-        }
+    private val rules: List<Rule> = when {
+        rules.isNotEmpty() -> listOf(*rules, identityRule())
+        else -> listOf(*standardRules(), identityRule())
     }
 
     fun convert(input: Int): Option<String> = when {

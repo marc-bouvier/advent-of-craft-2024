@@ -32,11 +32,9 @@ class FizzBuzz(vararg rules: Rule) {
         Rule(FIZZ, { "Fizz" }),
     )
 
-    private fun convertSafely(input: Int): String {
-        return rules
-            .first { rule -> rule.isValid(input) }
-            .apply(input)
-    }
+    private fun convertSafely(input: Int): String = rules
+        .first { rule -> rule.isValid(input) }
+        .apply(input)
 
     private fun isOutOfRange(input: Int) = input < MIN || input > MAX
 
@@ -47,10 +45,8 @@ class FizzBuzz(vararg rules: Rule) {
 
 
     companion object {
-        fun convert(input: Int): Option<String> {
-            return FizzBuzz().convert(input)
-        }
 
+        fun convert(input: Int): Option<String> = FizzBuzz().convert(input)
 
         fun identityRule() = Rule(1, { "$it" })
     }

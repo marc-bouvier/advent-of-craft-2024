@@ -15,24 +15,22 @@ class ConfigurableFizzBuzz(vararg rules: FizzBuzzRule) {
     val rules: List<FizzBuzzRule>
 
     init {
-        this.rules = rules.toList()
+        val identityRule = FizzBuzzRule(divisor = 1, { "$it" })
+
+        this.rules = when {
+            rules.isNotEmpty() -> listOf( *rules,identityRule)
+            else -> listOf( *standardRules(),identityRule)
+        }
     }
 
     fun convert(input: Int, vararg rules: FizzBuzzRule): Option<String> {
-        val identityRule = FizzBuzzRule(divisor = 1, { "$it" })
 
-        val applicableRules: Array<out FizzBuzzRule> = when {
-            rules.isNotEmpty() -> rules
-            else -> standardRules()
-        }
         return when {
             isOutOfRange(input) -> None
             else -> {
                 Some(
                     convertSafely(
                         input,
-                        *applicableRules,
-                        identityRule
                     )
                 )
             }
@@ -45,7 +43,7 @@ class ConfigurableFizzBuzz(vararg rules: FizzBuzzRule) {
         FizzBuzzRule(FIZZ, { "Fizz" }),
     )
 
-    private fun convertSafely(input: Int, vararg rules: FizzBuzzRule): String {
+    private fun convertSafely(input: Int): String {
         return rules
             .first { rule -> rule.isValid(input) }
             .apply(input)

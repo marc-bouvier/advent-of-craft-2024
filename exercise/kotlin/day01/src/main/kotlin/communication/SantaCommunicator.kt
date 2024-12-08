@@ -24,6 +24,10 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
         } else false
     }
 
+    private fun daysBeforeReturn(numbersOfDaysForComingBack: DaysForComingBack, numberOfDaysBeforeChristmas: DaysBeforeChristmas): Int {
+        return numberOfDaysBeforeChristmas.asInt() - numbersOfDaysForComingBack.asInt() - numberOfDaysToRest
+    }
+
     private fun daysBeforeReturn(numbersOfDaysForComingBack: Int, numberOfDaysBeforeChristmas: Int): Int {
         return numberOfDaysBeforeChristmas - numbersOfDaysForComingBack - numberOfDaysToRest
     }

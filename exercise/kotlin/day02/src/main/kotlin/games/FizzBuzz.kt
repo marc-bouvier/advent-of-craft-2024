@@ -22,12 +22,6 @@ class FizzBuzz(vararg rules: Rule) {
         else -> Some(convertSafely(input))
     }
 
-    private fun standardRules() = arrayOf(
-        Rule(divisor = 15, rendering = { "FizzBuzz" }),
-        Rule(divisor = 5, rendering = { "Buzz" }),
-        Rule(divisor = 3, rendering = { "Fizz" }),
-    )
-
     private fun convertSafely(input: Int): String = rules
         .first { rule -> rule.isValid(input) }
         .apply(input)
@@ -40,6 +34,11 @@ class FizzBuzz(vararg rules: Rule) {
     }
 
     companion object {
+        private fun standardRules() = arrayOf(
+            Rule(divisor = 15, rendering = { "FizzBuzz" }),
+            Rule(divisor = 5, rendering = { "Buzz" }),
+            Rule(divisor = 3, rendering = { "Fizz" }),
+        )
 
         fun convert(input: Int): Option<String> = FizzBuzz().convert(input)
 

@@ -34,9 +34,7 @@ class Reindeer(val reindeerName: String,
                val currentLocation: String)
 
 class SantaMessage {
-    val reindeerName: String
     val reindeer: Reindeer
-    val currentLocation: String
     val numbersOfDaysForComingBack: DaysForComingBack
     val numberOfDaysBeforeChristmas: DaysBeforeChristmas
 
@@ -46,8 +44,6 @@ class SantaMessage {
         reindeer1: Reindeer
     ) {
         this.reindeer = reindeer1
-        this.reindeerName = reindeer1.reindeerName
-        this.currentLocation = reindeer1.currentLocation
         this.numbersOfDaysForComingBack = numbersOfDaysForComingBack
         this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
     }

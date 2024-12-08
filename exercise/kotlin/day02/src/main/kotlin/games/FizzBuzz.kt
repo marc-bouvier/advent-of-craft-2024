@@ -4,6 +4,7 @@ import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
 import games.FizzBuzz.Rule
+import games.FizzBuzz.identityRule
 
 const val MIN = 1
 const val MAX = 100
@@ -15,11 +16,10 @@ class ConfigurableFizzBuzz(vararg rules: Rule) {
     val rules: List<Rule>
 
     init {
-        val identityRule = Rule(divisor = 1, { "$it" })
 
         this.rules = when {
-            rules.isNotEmpty() -> listOf(*rules, identityRule)
-            else -> listOf(*standardRules(), identityRule)
+            rules.isNotEmpty() -> listOf(*rules, identityRule())
+            else -> listOf(*standardRules(), identityRule())
         }
     }
 
@@ -53,4 +53,6 @@ object FizzBuzz {
         fun isValid(input: Int) = input % divisor == 0
         fun apply(input: Int) = rendering(input)
     }
+
+    fun identityRule() = Rule(1, { "$it" })
 }

@@ -36,9 +36,8 @@ class Reindeer(val reindeerName: String,
 class SantaMessage(
     val numbersOfDaysForComingBack: DaysForComingBack,
     val numberOfDaysBeforeChristmas: DaysBeforeChristmas,
-    reindeer1: Reindeer
+    val reindeer: Reindeer
 ) {
-    val reindeer: Reindeer = reindeer1
 
 }
 class DaysBeforeChristmas(private val days: Int) {

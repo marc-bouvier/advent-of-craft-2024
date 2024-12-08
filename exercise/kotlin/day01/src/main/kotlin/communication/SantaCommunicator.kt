@@ -37,20 +37,9 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
 class SantaMessage {
     val reindeerName: String
     val currentLocation: String
-    val numbersOfDaysForComingBack: Int
-    val numberOfDaysBeforeChristmas: Int
+    val numbersOfDaysForComingBack: DaysForComingBack
+    val numberOfDaysBeforeChristmas: DaysBeforeChristmas
 
-    constructor(
-        reindeerName: String,
-        currentLocation: String,
-        numbersOfDaysForComingBack: Int,
-        numberOfDaysBeforeChristmas: DaysBeforeChristmas
-    ) {
-        this.reindeerName = reindeerName
-        this.currentLocation = currentLocation
-        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack
-        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas.asInt()
-    }
 
     constructor(
         reindeerName: String,
@@ -60,8 +49,8 @@ class SantaMessage {
     ) {
         this.reindeerName = reindeerName
         this.currentLocation = currentLocation
-        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack.asInt()
-        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas.asInt()
+        this.numbersOfDaysForComingBack = numbersOfDaysForComingBack
+        this.numberOfDaysBeforeChristmas = numberOfDaysBeforeChristmas
     }
 
 }

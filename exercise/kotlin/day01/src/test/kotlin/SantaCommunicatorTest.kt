@@ -49,7 +49,7 @@ class SantaCommunicatorTest : DescribeSpec({
             val santaMessage = SantaMessage(reindeerName = "Dasher",
                 currentLocation = "North Pole",
                 numbersOfDaysForComingBack = numberOfDayBeforeChristmas - numberOfDaysToRest - 1,
-                numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas,)
+                numberOfDaysBeforeChristmas = DaysBeforeChristmas(numberOfDayBeforeChristmas),)
             communicator.isOverdue(
                 message = santaMessage,
                 logger = logger

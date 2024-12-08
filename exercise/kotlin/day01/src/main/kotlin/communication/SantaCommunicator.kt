@@ -4,19 +4,10 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
 
 
     fun composeMessage(
-    message: SantaMessage,
+        message: SantaMessage,
     ): String {
-     return composeMessage(message.reindeerName,message.currentLocation,message.numbersOfDaysForComingBack,message.numberOfDaysBeforeChristmas)
-    }
-
-    private fun composeMessage(
-        reindeerName: String,
-        currentLocation: String,
-        numbersOfDaysForComingBack: Int,
-        numberOfDaysBeforeChristmas: Int
-    ): String {
-        val daysBeforeReturn = daysBeforeReturn(numbersOfDaysForComingBack, numberOfDaysBeforeChristmas)
-        return "Dear $reindeerName, please return from $currentLocation in $daysBeforeReturn day(s) to be ready and rest before Christmas."
+        val daysBeforeReturn = daysBeforeReturn(message.numbersOfDaysForComingBack, message.numberOfDaysBeforeChristmas)
+        return "Dear ${message.reindeerName}, please return from ${message.currentLocation} in $daysBeforeReturn day(s) to be ready and rest before Christmas."
     }
 
     fun isOverdue(message: SantaMessage,logger: Logger): Boolean {

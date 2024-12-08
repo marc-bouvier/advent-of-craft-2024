@@ -50,24 +50,7 @@ class ConfigurableFizzBuzz{
 }
 object FizzBuzz {
     fun convert(input: Int, vararg rules: FizzBuzzRule): Option<String> {
-        val identityRule = FizzBuzzRule(divisor = 1, { "$it" })
-
-        val applicableRules: Array<out FizzBuzzRule> = when {
-            rules.isNotEmpty() -> rules
-            else -> standardRules()
-        }
-        return when {
-            isOutOfRange(input) -> None
-            else -> {
-                Some(
-                    convertSafely(
-                        input,
-                        *applicableRules,
-                        identityRule
-                    )
-                )
-            }
-        }
+        return ConfigurableFizzBuzz().convert(input)
     }
 
     private fun standardRules() = arrayOf(

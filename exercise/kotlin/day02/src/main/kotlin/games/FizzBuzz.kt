@@ -10,6 +10,9 @@ private const val FIZZBUZZ = 15
 private const val FIZZ = 3
 private const val BUZZ = 5
 
+class ConfigurableFizzBuzz{
+
+}
 object FizzBuzz {
     fun convert(input: Int, vararg rules: FizzBuzzRule): Option<String> {
         val identityRule = FizzBuzzRule(divisor = 1, { "$it" })

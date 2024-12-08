@@ -16,6 +16,10 @@ class SantaCommunicatorTest : DescribeSpec({
 
     describe("composeMessage") {
         it("should compose correct message") {
+            val message = SantaMessage(reindeerName = "Dasher",
+                currentLocation = "North Pole",
+                numbersOfDaysForComingBack = 5,
+                numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas)
             communicator
                 .composeMessage(
                     reindeerName = "Dasher",

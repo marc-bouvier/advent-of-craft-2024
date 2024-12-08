@@ -45,9 +45,10 @@ class SantaMessage {
         reindeerName: String,
         currentLocation: String,
         numbersOfDaysForComingBack: DaysForComingBack,
-        numberOfDaysBeforeChristmas: DaysBeforeChristmas
+        numberOfDaysBeforeChristmas: DaysBeforeChristmas,
+        reindeer1: Reindeer
     ) {
-        this.reindeer = Reindeer(reindeerName, currentLocation)
+        this.reindeer = reindeer1
         this.reindeerName = reindeerName
         this.currentLocation = currentLocation
         this.numbersOfDaysForComingBack = numbersOfDaysForComingBack

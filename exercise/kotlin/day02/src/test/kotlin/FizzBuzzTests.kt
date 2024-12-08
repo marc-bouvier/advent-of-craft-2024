@@ -10,6 +10,11 @@ class FizzBuzzTests : FunSpec({
         withData(
             ValidInput(1, "1"),
             ValidInput(67, "67"),
+            ValidInput(7, "Whizz"),
+            ValidInput(14, "Whizz"),
+            ValidInput(21, "Whizz"),
+            ValidInput(28, "Whizz"),
+            ValidInput(35, "Whizz"),
             ValidInput(82, "82"),
             ValidInput(3, "Fizz"),
             ValidInput(66, "Fizz"),

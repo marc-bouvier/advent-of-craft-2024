@@ -28,6 +28,9 @@ class SantaCommunicator(private val numberOfDaysToRest: Int) {
 }
 
 
+class Reindeer(val reindeerName: String,
+               val currentLocation: String)
+
 class SantaMessage {
     val reindeerName: String
     val currentLocation: String

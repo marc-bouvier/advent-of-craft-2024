@@ -51,7 +51,7 @@ class SantaMessage {
     constructor(
         reindeerName: String,
         currentLocation: String,
-        numbersOfDaysForComingBack: DaysBeforeChristmas,
+        numbersOfDaysForComingBack: DaysForComingBack,
         numberOfDaysBeforeChristmas: DaysBeforeChristmas
     ) {
         this.reindeerName = reindeerName

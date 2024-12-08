@@ -21,7 +21,7 @@ class FizzBuzzTests : FunSpec({
             ValidInput(30, "FizzBuzz"),
             ValidInput(45, "FizzBuzz")
         ) { (input, expectedResult) ->
-            standardFizzBuzzConvert(input).shouldBeSome(expectedResult)
+            fizzBuzzWhizzConvert(input).shouldBeSome(expectedResult)
         }
     }
 
@@ -34,11 +34,11 @@ class FizzBuzzTests : FunSpec({
 
 private fun standardFizzBuzzConvert(input: Int) = FizzBuzz.convert(input)
 
-private fun standardFizzBuzzWhizzConvert(input: Int) = ConfigurableFizzBuzz(
+private fun fizzBuzzWhizzConvert(input: Int) = ConfigurableFizzBuzz(
     FizzBuzz.Rule(7, { "Whizz" }),
     FizzBuzz.Rule(15, { "FizzBuzz" }),
-    FizzBuzz.Rule(5, { "Fizz" }),
-    FizzBuzz.Rule(3, { "Buzz" }),
+    FizzBuzz.Rule(5, { "Buzz" }),
+    FizzBuzz.Rule(3, { "Fizz" }),
     FizzBuzz.identityRule()
 )
     .convert(input)

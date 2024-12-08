@@ -36,7 +36,7 @@ class DaysBeforeChristmas(private val days: Int) {
     }
 }
 
-data class SantaMessage(
+class SantaMessage(
     val reindeerName: String,
     val currentLocation: String,
     val numbersOfDaysForComingBack: Int,

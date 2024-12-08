@@ -37,7 +37,6 @@ data class SantaMessage(
     val currentLocation: String,
     val numbersOfDaysForComingBack: Int,
     val numberOfDaysBeforeChristmas: Int,
-    val logger: Logger
 ) {
 
 }

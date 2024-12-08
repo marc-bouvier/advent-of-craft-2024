@@ -22,10 +22,7 @@ class SantaCommunicatorTest : DescribeSpec({
                 numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas)
             communicator
                 .composeMessage(
-                    reindeerName = "Dasher",
-                    currentLocation = "North Pole",
-                    numbersOfDaysForComingBack = 5,
-                    numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas
+                    message
                 ) shouldBe "Dear Dasher, please return from North Pole in 17 day(s) to be ready and rest before Christmas."
         }
     }

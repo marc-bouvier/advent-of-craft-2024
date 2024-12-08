@@ -44,7 +44,6 @@ private fun fizzBuzzConvert(input: Int) = FizzBuzz(
     FizzBuzz.Rule(7, { "Whizz" }),
     FizzBuzz.Rule(5, { "Buzz" }),
     FizzBuzz.Rule(3, { "Fizz" }),
-    FizzBuzz.identityRule()
 )
     .convert(input)
 

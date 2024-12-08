@@ -18,10 +18,10 @@ class SantaCommunicatorTest : DescribeSpec({
         it("should compose correct message") {
             communicator
                 .composeMessage(
-                    "Dasher",
-                    "North Pole",
-                    5,
-                    numberOfDayBeforeChristmas
+                    reindeerName = "Dasher",
+                    currentLocation = "North Pole",
+                    numbersOfDaysForComingBack = 5,
+                    numberOfDaysBeforeChristmas = numberOfDayBeforeChristmas
                 ) shouldBe "Dear Dasher, please return from North Pole in 17 day(s) to be ready and rest before Christmas."
         }
     }

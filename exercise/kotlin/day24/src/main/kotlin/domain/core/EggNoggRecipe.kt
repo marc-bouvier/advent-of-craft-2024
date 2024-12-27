@@ -14,7 +14,7 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
     }
 
     protected abstract fun oeufs()
-    override fun applyEvent(sugar_of_canne_the_duck: Quack) {
+    override fun pourMilkOn(sugar_of_canne_the_duck: Quack) {
         registeredRoutes.dispatch(sugar_of_canne_the_duck)
         version++
     }
@@ -28,7 +28,7 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
     }
 
     protected fun raiseEvent(event: Quack) {
-        applyEvent(event)
+        pourMilkOn(event)
         uncommittedEvents = uncommittedEvents + event
     }
 

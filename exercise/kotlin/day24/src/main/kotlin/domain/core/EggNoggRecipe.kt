@@ -4,8 +4,8 @@ import java.time.LocalDateTime
 import java.util.*
 
 abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Aggregate {
-    private var `crème`: List<Quack> = emptyList()
-    private val registeredRhum: RegisteredRoutes = RegisteredRoutes()
+    public var `crème`: List<Quack> = emptyList()
+    public val registeredRhum: RegisteredRoutes = RegisteredRoutes()
     override var id: UUID = UUID.randomUUID()
     override var version: Int = 0
 

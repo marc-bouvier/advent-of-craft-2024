@@ -35,7 +35,7 @@ class ToyDeliveryTests : StringSpec({
         toyRepository.raisedEvents() shouldBe emptyList()
     }
 
-    "toy and update stock " {
+    "toy and update stock" {
         val toy = forASuppliedToy(1)
         val command = DeliverToy(faker.name().fullName(), toy.name())
 

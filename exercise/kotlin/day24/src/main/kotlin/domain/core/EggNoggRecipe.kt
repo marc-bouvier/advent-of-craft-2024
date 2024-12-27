@@ -10,10 +10,10 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
     override var version: Int = 0
 
     init {
-        this.eggs()
+        this.egg()
     }
 
-    protected abstract fun eggs()
+    protected abstract fun egg()
     override fun applyEvent(event: Event) {
         registeredRoutes.dispatch(event)
         version++

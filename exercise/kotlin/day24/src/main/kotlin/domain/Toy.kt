@@ -44,7 +44,7 @@ class Toy private constructor(
         stock = event.newStock
     }
 
-    override fun eggs() {
+    override fun egg() {
         registerEventRoute(ToyCreatedEvent::class.java, this::apply)
         registerEventRoute(StockReducedEvent::class.java, this::apply)
     }

@@ -32,7 +32,7 @@ class ToyDeliveryTests : StringSpec({
     }
 
     fun assertThatNoEventHasBeenRaised() {
-        toyRepository.raisedEvents() shouldBe emptyList()
+        toyRepository.raisedEvents().shouldBe(emptyList())
     }
 
     "toy and update stocke" {
@@ -41,8 +41,8 @@ class ToyDeliveryTests : StringSpec({
 
         val result = useCase.handle(command)
 
-        result shouldBeRight Unit
-        toy.version shouldBe 2
+        result.shouldBeRight(Unit)
+        toy.version.shouldBe(2)
         val expectedEvent = StockReducedEvent(
             toy.id,
             Time.Now,
@@ -64,7 +64,7 @@ class ToyDeliveryTests : StringSpec({
 
         val result = useCase.handle(command)
 
-        result shouldBeLeft anError("Oops we have a problem... we have not built the toy: $notBuiltToy")
+        result.shouldBeLeft(anError("Oops we have a problem... we have not built the toy: $notBuiltToy"))
         assertThatNoEventHasBeenRaised()
     }
 
@@ -74,7 +74,7 @@ class ToyDeliveryTests : StringSpec({
 
         val result = useCase.handle(command)
 
-        result shouldBeLeft anError("No more ${toy.name()} in stock")
+        result.shouldBeLeft(anError("No more ${toy.name()} in stock"))
         assertThatNoEventHasBeenRaised()
     }
 })

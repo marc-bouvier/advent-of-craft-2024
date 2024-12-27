@@ -1,0 +1,11 @@
+- Garder le Either et lever des exception
+- coupler les tests à l'implem
+  - ajouter des tests et les verifier les implems de types
+  - test boite blanche
+- Ajouter des commentaires qui n'ont rien à voir (ex la recette du eggnog)
+- ✅ Inline assertions custom
+- Max de lignes de codes + de bruit !
+- Convert to Java
+- prefix : lips dans du kotlin (a priori on peut pas)
+  - a + b
+  - + a b

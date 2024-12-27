@@ -28,7 +28,7 @@ class ToyDeliveryUseCase(private val r: ToyRepository) {
                 }
                 r
             }
-            .map { }
+            .map {Unit }
     }
 
     private fun reduceStock(toy: Toy): Either<Error, Toy> {

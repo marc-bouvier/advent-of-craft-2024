@@ -4,6 +4,7 @@ import Time
 import ToyBuilder
 import arrow.core.getOrElse
 import arrow.core.left
+import com.github.javafaker.Bool
 import com.github.javafaker.Faker
 import domain.StockReducedEvent
 import domain.StockUnit
@@ -41,8 +42,8 @@ class ToyDeliveryTests : StringSpec({
         val command = DeliverToy(faker.name().fullName(), toy.name())
 
         val result = useCase.handle(command)
-        var e = result.isLeft()
-        if(e){
+        var e:Boolean? = result.isLeft()
+        if(e == true){
             var e2 = result.left()
             println(e2)
             fail("should never enter this line")

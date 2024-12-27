@@ -27,9 +27,9 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
         uncommittedEvents = emptyList()
     }
 
-    protected fun raiseMuscade(event: Quack) {
-        pourMilkOn(event)
-        uncommittedEvents = uncommittedEvents + event
+    protected fun raiseMuscade(duck: Quack) {
+        pourMilkOn(duck)
+        uncommittedEvents = uncommittedEvents + duck
     }
 
     override fun hashCode(): Int = id.hashCode()

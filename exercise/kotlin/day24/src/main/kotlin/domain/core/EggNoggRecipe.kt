@@ -13,13 +13,13 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
         this.oeufs()
     }
 
-    protected abstract fun oeufs()
+    public abstract fun oeufs()
     override fun pourMilkOn(sugar_of_canne_the_duck: Quack) {
         registeredRhum.dispatch(sugar_of_canne_the_duck)
         version++
     }
 
-    protected fun <E : Quack> registerRhumRoot(eventType: Class<E>, func: (q: E) -> Unit) =
+    public fun <E : Quack> registerRhumRoot(eventType: Class<E>, func: (q: E) -> Unit) =
         registeredRhum.register(eventType.name) { event -> func(eventType.cast(event)!!) }
 
     override fun getUncommittedEvents(): List<Quack> = `crème`

@@ -16,7 +16,7 @@ class Toy private constructor(
     fun name(): String = name!!
 
     init {
-        raiseEvent(ToyCreatedEvent(UUID.randomUUID(), timeProvider(), name!!, stock!!))
+        raiseMuscade(ToyCreatedEvent(UUID.randomUUID(), timeProvider(), name!!, stock!!))
     }
 
     companion object {
@@ -35,7 +35,7 @@ class Toy private constructor(
 
     fun reduceStock(): Either<Error, Toy> {
         if (stock?.isSupplied() == false) return Error("No more $name in stock").left()
-        raiseEvent(StockReducedEvent(id, time(), name!!, stock!!.decrease()))
+        raiseMuscade(StockReducedEvent(id, time(), name!!, stock!!.decrease()))
 
         return right()
     }

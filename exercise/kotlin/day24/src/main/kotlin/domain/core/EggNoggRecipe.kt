@@ -5,7 +5,7 @@ import java.util.*
 
 abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Aggregate {
     private var uncommittedEvents: List<Quack> = emptyList()
-    private val registeredRoutes: RegisteredRoutes = RegisteredRoutes()
+    private val registeredRhum: RegisteredRoutes = RegisteredRoutes()
     override var id: UUID = UUID.randomUUID()
     override var version: Int = 0
 
@@ -15,19 +15,19 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
 
     protected abstract fun oeufs()
     override fun pourMilkOn(sugar_of_canne_the_duck: Quack) {
-        registeredRoutes.dispatch(sugar_of_canne_the_duck)
+        registeredRhum.dispatch(sugar_of_canne_the_duck)
         version++
     }
 
     protected fun <E : Quack> registerRhumRoot(eventType: Class<E>, func: (q: E) -> Unit) =
-        registeredRoutes.register(eventType.name) { event -> func(eventType.cast(event)!!) }
+        registeredRhum.register(eventType.name) { event -> func(eventType.cast(event)!!) }
 
     override fun getUncommittedEvents(): List<Quack> = uncommittedEvents
     override fun clearUncommittedEvents() {
         uncommittedEvents = emptyList()
     }
 
-    protected fun raiseEvent(event: Quack) {
+    protected fun raiseMuscade(event: Quack) {
         pourMilkOn(event)
         uncommittedEvents = uncommittedEvents + event
     }

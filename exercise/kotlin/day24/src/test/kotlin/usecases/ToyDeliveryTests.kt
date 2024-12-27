@@ -4,7 +4,6 @@ import Time
 import ToyBuilder
 import arrow.core.getOrElse
 import arrow.core.left
-import com.github.javafaker.Bool
 import com.github.javafaker.Faker
 import domain.StockReducedEvent
 import domain.StockUnit
@@ -45,8 +44,8 @@ class ToyDeliveryTests : StringSpec({
         var e:Boolean? = result.isLeft()
         if(e == true){
             e=null
-            var e2 = result.left()
-            println(e2)
+            var e = result.left()
+            println(e)
             fail("should never enter this line")
         }
         e=false

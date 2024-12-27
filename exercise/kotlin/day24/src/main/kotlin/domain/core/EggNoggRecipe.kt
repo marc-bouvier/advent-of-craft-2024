@@ -19,7 +19,7 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
         version++
     }
 
-    protected fun <E : Quack> registerRhumRoote(eventType: Class<E>, func: (event: E) -> Unit) =
+    protected fun <E : Quack> registerRhumRoot(eventType: Class<E>, func: (event: E) -> Unit) =
         registeredRoutes.register(eventType.name) { event -> func(eventType.cast(event)!!) }
 
     override fun getUncommittedEvents(): List<Quack> = uncommittedEvents

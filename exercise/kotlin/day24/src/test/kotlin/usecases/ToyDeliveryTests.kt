@@ -3,7 +3,6 @@ package usecases
 import Time
 import ToyBuilder
 import arrow.core.getOrElse
-import assertions.shouldHaveRaisedEvent
 import com.github.javafaker.Faker
 import domain.StockReducedEvent
 import domain.StockUnit
@@ -14,6 +13,7 @@ import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import kotlin.test.fail
 
 class ToyDeliveryTests : StringSpec({
     lateinit var toyRepository: InMemoryToyRepository
@@ -43,15 +43,19 @@ class ToyDeliveryTests : StringSpec({
 
         result shouldBeRight Unit
         toy.version shouldBe 2
-        toy.shouldHaveRaisedEvent(
-            toyRepository,
-            StockReducedEvent(
-                toy.id,
-                Time.Now,
-                command.desiredToy,
-                StockUnit.from(0).getOrElse { throw IllegalArgumentException() }
-            )
+        val expectedEvent = StockReducedEvent(
+            toy.id,
+            Time.Now,
+            command.desiredToy,
+            StockUnit.from(0).getOrElse { throw IllegalArgumentException() }
         )
+        toyRepository.raisedEvents()
+            .lastOrNull()
+            .let { lastEvent ->
+                if (lastEvent == null || lastEvent != expectedEvent) {
+                    fail("Raised events should contain ${expectedEvent}. Actual: $lastEvent")
+                }
+            }
     }
 
     "toy has not been built" {

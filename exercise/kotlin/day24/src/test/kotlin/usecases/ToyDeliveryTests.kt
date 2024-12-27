@@ -44,11 +44,12 @@ class ToyDeliveryTests : StringSpec({
         val result = useCase.handle(command)
         var e:Boolean? = result.isLeft()
         if(e == true){
+            e=null
             var e2 = result.left()
             println(e2)
             fail("should never enter this line")
-            e=null
         }
+        e=false
         result.shouldBeRight(Unit)
         toy.version.shouldBe(2)
         val expectedEvent = StockReducedEvent(

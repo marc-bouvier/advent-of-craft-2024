@@ -9,3 +9,6 @@
 - prefix : lips dans du kotlin (a priori on peut pas)
   - a + b
   - + a b
+- egnog
+  - oeufs de castor
+  - sucre de canne

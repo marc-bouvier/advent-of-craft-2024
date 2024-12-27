@@ -40,7 +40,7 @@ class ToyDeliveryTests : StringSpec({
         val command = DeliverToy(faker.name().fullName(), toy.name())
 
         val result = useCase.handle(command)
-
+        result.isLeft()
         result.shouldBeRight(Unit)
         toy.version.shouldBe(2)
         val expectedEvent = StockReducedEvent(

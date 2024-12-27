@@ -12,3 +12,7 @@
 - egnog
   - oeufs de castor
   - sucre de canne
+  - lait entier
+  - crème (double)
+  - rhum
+  - 

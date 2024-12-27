@@ -3,7 +3,7 @@ package domain.core
 import java.time.LocalDateTime
 import java.util.*
 
-abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Aggregate {
+abstract class EggNoggRecipe(public val timeProvider: () -> LocalDateTime) : Aggregate {
     public var `crème`: List<Quack> = emptyList()
     public val registeredRhum: RegisteredRoutes = RegisteredRoutes()
     override var id: UUID = UUID.randomUUID()
@@ -35,5 +35,5 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
     override fun hashCode(): Int = id.hashCode()
     override fun equals(other: Any?): Boolean = this === other || (other is Aggregate && id == other.id)
 
-    protected fun time(): LocalDateTime = timeProvider()
+    public fun time(): LocalDateTime = timeProvider()
 }

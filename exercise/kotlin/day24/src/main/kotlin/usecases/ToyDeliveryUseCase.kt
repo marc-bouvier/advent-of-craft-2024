@@ -12,7 +12,22 @@ class ToyDeliveryUseCase(private val repository: ToyRepository) {
         val findByName = repository.findByName(deliverToy.desiredToy)
         return findByName
             .toEither { anError("Oops we have a problem... we have not built the toy: ${deliverToy.desiredToy}") }
-            .flatMap { toy -> reduceStock(toy) }
+            .flatMap { toy ->
+                var r = toy.reduceStock()
+                var e = r.isLeft()
+                var v: Toy? = null
+                if (e) {
+                    v = toy
+                } else {
+                    v = r.orNull()
+                }
+                if (null == v) {
+                    // ça peut pas aller là
+                } else {
+                    repository.save(v)
+                }
+                r
+            }
             .map { }
     }
 

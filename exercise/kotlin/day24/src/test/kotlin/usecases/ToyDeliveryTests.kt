@@ -44,7 +44,8 @@ class ToyDeliveryTests : StringSpec({
         var e = result.isLeft()
         if(e){
             var e2 = result.left()
-            e2
+            println(e2)
+
         }
         result.shouldBeRight(Unit)
         toy.version.shouldBe(2)

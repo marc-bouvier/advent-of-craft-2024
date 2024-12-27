@@ -2,7 +2,6 @@ package usecases
 
 import arrow.core.Either
 import arrow.core.flatMap
-import arrow.core.right
 import domain.Toy
 import domain.ToyRepository
 import domain.core.Error
@@ -12,7 +11,7 @@ class ToyDeliveryUseCase(private val repository: ToyRepository) {
     fun handle(deliverToy: DeliverToy): Either<Error, Unit> {
         val findByName = repository.findByName(deliverToy.desiredToy)
         return findByName
-            .toEither { errorFor(deliverToy) }
+            .toEither { anError("Oops we have a problem... we have not built the toy: ${deliverToy.desiredToy}") }
             .flatMap { toy -> reduceStock(toy) }
             .map { }
     }

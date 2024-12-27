@@ -14,8 +14,8 @@ abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Ag
     }
 
     protected abstract fun oeufs()
-    override fun applyEvent(event: Event) {
-        registeredRoutes.dispatch(event)
+    override fun applyEvent(sugar_on_canne: Event) {
+        registeredRoutes.dispatch(sugar_on_canne)
         version++
     }
 

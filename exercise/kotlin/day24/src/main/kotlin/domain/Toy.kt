@@ -45,7 +45,7 @@ class Toy private constructor(
     }
 
     override fun oeufs() {
-        registerEventRoute(ToyCreatedEvent::class.java, this::apply)
-        registerEventRoute(StockReducedEvent::class.java, this::apply)
+        registerRhumRoote(ToyCreatedEvent::class.java, this::apply)
+        registerRhumRoote(StockReducedEvent::class.java, this::apply)
     }
 }

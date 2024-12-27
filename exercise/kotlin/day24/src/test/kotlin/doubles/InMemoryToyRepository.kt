@@ -5,12 +5,12 @@ import arrow.core.toOption
 import domain.Toy
 import domain.ToyRepository
 import domain.core.Aggregate
-import domain.core.Event
+import domain.core.Quack
 import java.util.*
 
 class InMemoryToyRepository : ToyRepository {
     private val toys: MutableMap<UUID, Toy> = HashMap()
-    private var raisedEvents: MutableList<Event> = mutableListOf()
+    private var raisedEvents: MutableList<Quack> = mutableListOf()
 
     override fun findByName(toyName: String): Option<Toy> = toys.values.firstOrNull { it.name() == toyName }.toOption()
     override fun findById(id: UUID): Option<Toy> = toys[id].toOption()
@@ -22,5 +22,5 @@ class InMemoryToyRepository : ToyRepository {
         (aggregate as Aggregate).clearUncommittedEvents()
     }
 
-    fun raisedEvents(): List<Event> = raisedEvents
+    fun raisedEvents(): List<Quack> = raisedEvents
 }

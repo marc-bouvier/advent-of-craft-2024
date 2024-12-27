@@ -1,11 +1,11 @@
 package assertions
 
 import domain.Toy
-import domain.core.Event
+import domain.core.Quack
 import doubles.InMemoryToyRepository
 import kotlin.test.fail
 
-fun Toy.shouldHaveRaisedEvent(repository: InMemoryToyRepository, expectedEvent: Event) =
+fun Toy.shouldHaveRaisedEvent(repository: InMemoryToyRepository, expectedEvent: Quack) =
     repository.raisedEvents()
         .lastOrNull()
         .let { lastEvent ->

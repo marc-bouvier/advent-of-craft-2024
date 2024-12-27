@@ -6,7 +6,7 @@ interface Aggregate {
     val id: UUID
     val version: Int
 
-    fun applyEvent(event: Event)
-    fun getUncommittedEvents(): List<Event>
+    fun applyEvent(event: Quack)
+    fun getUncommittedEvents(): List<Quack>
     fun clearUncommittedEvents()
 }

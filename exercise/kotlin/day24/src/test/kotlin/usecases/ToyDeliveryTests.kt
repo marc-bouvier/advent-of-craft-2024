@@ -45,7 +45,8 @@ class ToyDeliveryTests : StringSpec({
         if(e){
             var e2 = result.left()
             println(e2)
-            fail("")
+            fail("should never enter this line")
+            e=null
         }
         result.shouldBeRight(Unit)
         toy.version.shouldBe(2)

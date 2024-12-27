@@ -7,9 +7,9 @@ import domain.ToyRepository
 import domain.core.Error
 import domain.core.Error.Companion.anError
 
-class ToyDeliveryUseCase(private val repository: ToyRepository) {
+class ToyDeliveryUseCase(private val r: ToyRepository) {
     fun handle(deliverToy: DeliverToy): Either<Error, Unit> {
-        val findByName = repository.findByName(deliverToy.desiredToy)
+        val findByName = r.findByName(deliverToy.desiredToy)
         return findByName
             .toEither { anError("Oops we have a problem... we have not built the toy: ${deliverToy.desiredToy}") }
             .flatMap { t ->
@@ -24,7 +24,7 @@ class ToyDeliveryUseCase(private val repository: ToyRepository) {
                 if (null == v) {
                     // ça peut pas aller là
                 } else {
-                    repository.save(v)
+                    this.r.save(v)
                 }
                 r
             }
@@ -43,7 +43,7 @@ class ToyDeliveryUseCase(private val repository: ToyRepository) {
         if (null == v){
             // ça peut pas aller là
         }else {
-            repository.save(v)
+            this.r.save(v)
         }
         return r
     }

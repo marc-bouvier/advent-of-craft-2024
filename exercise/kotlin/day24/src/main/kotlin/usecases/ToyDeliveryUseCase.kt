@@ -8,11 +8,13 @@ import domain.core.Error
 import domain.core.Error.Companion.anError
 
 class ToyDeliveryUseCase(private val repository: ToyRepository) {
-    fun handle(deliverToy: DeliverToy): Either<Error, Unit> =
-        repository.findByName(deliverToy.desiredToy)
+    fun handle(deliverToy: DeliverToy): Either<Error, Unit> {
+        val findByName = repository.findByName(deliverToy.desiredToy)
+        return findByName
             .toEither { errorFor(deliverToy) }
             .flatMap { toy -> reduceStock(toy) }
             .map { }
+    }
 
     private fun reduceStock(toy: Toy): Either<Error, Toy> =
         toy.reduceStock()

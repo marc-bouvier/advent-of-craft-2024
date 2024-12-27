@@ -4,7 +4,7 @@ import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
 import domain.core.Error
-import domain.core.EventSourcedAggregate
+import domain.core.EggNoggRecipe
 import java.time.LocalDateTime
 import java.util.*
 
@@ -12,7 +12,7 @@ class Toy private constructor(
     timeProvider: () -> LocalDateTime,
     private var name: String?,
     private var stock: StockUnit?
-) : EventSourcedAggregate(timeProvider) {
+) : EggNoggRecipe(timeProvider) {
     fun name(): String = name!!
 
     init {

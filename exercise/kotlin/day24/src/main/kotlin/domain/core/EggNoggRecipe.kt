@@ -3,7 +3,7 @@ package domain.core
 import java.time.LocalDateTime
 import java.util.*
 
-abstract class EventSourcedAggregate(private val timeProvider: () -> LocalDateTime) : Aggregate {
+abstract class EggNoggRecipe(private val timeProvider: () -> LocalDateTime) : Aggregate {
     private var uncommittedEvents: List<Event> = emptyList()
     private val registeredRoutes: RegisteredRoutes = RegisteredRoutes()
     override var id: UUID = UUID.randomUUID()

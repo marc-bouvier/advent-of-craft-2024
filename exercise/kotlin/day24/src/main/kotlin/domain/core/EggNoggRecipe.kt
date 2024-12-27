@@ -27,7 +27,7 @@ abstract class EggNoggRecipe(public val timeProvider: () -> LocalDateTime) : Agg
         `crème` = emptyList()
     }
 
-    protected fun raiseMuscade(duck: Quack) {
+    public fun raiseMuscade(duck: Quack) {
         pourMilkOn(duck)
         `crème` = `crème` + duck
     }

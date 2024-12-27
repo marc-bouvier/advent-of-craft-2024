@@ -41,6 +41,9 @@ class ToyDeliveryTests : StringSpec({
 
         val result = useCase.handle(command)
         var e = result.isLeft()
+        if(e){
+            
+        }
         result.shouldBeRight(Unit)
         toy.version.shouldBe(2)
         val expectedEvent = StockReducedEvent(
